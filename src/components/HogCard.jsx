@@ -14,18 +14,22 @@ function HogCard({ hog, onHideHog }) {
     }
 
     return (
-        <div onClick={handleDetailClick}>
-            <h3>{hog.name}</h3>
-            <img src={hog.image} alt={"Photo of " + hog.name}/>
-            {showDetails && (
-                <div>
-                    <p>Specialty: {hog.specialty}</p>
-                    <p>{hog.weight}</p>
-                    <p>{hog.greased ? "Greased" : "Nongreased"}</p>
-                    <p>{hog["highest medal achieved"]}</p>
-                </div>
-            )}
-            <button onClick={handleHideClick}>Hide Me</button>
+        <div className="ui card" aria-label="hog card" onClick={handleDetailClick}>
+            <div className="image">
+                <img src={hog.image} alt={"Photo of " + hog.name}/>
+            </div>
+            <div className="content">
+                <h3 className="header">{hog.name}</h3>
+                {showDetails && (
+                    <div className="description">
+                        <p>Specialty: {hog.specialty}</p>
+                        <p>{hog.weight}</p>
+                        <p>{hog.greased ? "Greased" : "Nongreased"}</p>
+                        <p>{hog["highest medal achieved"]}</p>
+                    </div>
+                )}
+            </div>
+            <button className="ui button" onClick={handleHideClick}>Hide Me</button>
         </div>
     );
 }

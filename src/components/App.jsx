@@ -26,17 +26,20 @@ function App() {
 			a.weight - b.weight
 		);
 	}
-	
+
 	function handleHideHog(hogName) {
 		setHiddenHogs([...hiddenHogs, hogName]);
 	}
 	
+	function handleAddHog(formData) {
+		setHogs([...hogs, formData])
+	}
 
 	return (
 		<div className="App">
 			<Nav />
 			<FilterBar showGreasedOnly={showGreasedOnly} setShowGreasedOnly={setShowGreasedOnly} sortBy={sortBy} setSortBy={setSortBy}/>
-			<HogForm />
+			<HogForm onAddHog={handleAddHog}/>
 			<HogList hogs={processedHogs} onHideHog={handleHideHog}/>
 		</div>
 	);
