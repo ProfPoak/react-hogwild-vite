@@ -1,11 +1,12 @@
 import React from "react";
 import HogCard from "./HogCard";
 
-function HogList() {
+function HogList({ hogs, onHideHog }) {
     return(
         <div>
-            <h2>HogList Placeholder</h2>
-            <HogCard/>
+            {hogs.map((hog)=> (
+                <HogCard key={hog.name} hog={hog} onHideHog={onHideHog} />
+            ))}
         </div>
     );
 }

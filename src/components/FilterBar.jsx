@@ -1,9 +1,14 @@
 import React from "react";
 
-function FilterBar() {
+function FilterBar({ showGreasedOnly, setShowGreasedOnly}) {
+    function handleToggleGreased() {
+        setShowGreasedOnly(!showGreasedOnly);
+    };
+
     return (
         <div>
-            <h2>FilterBar Placeholder</h2>
+            <label htmlFor="greased-checker">Greased Pigs Only?</label>
+            <input id="greased-checker" type="checkbox" checked={showGreasedOnly} onChange={handleToggleGreased} />
         </div>
     );
 }
